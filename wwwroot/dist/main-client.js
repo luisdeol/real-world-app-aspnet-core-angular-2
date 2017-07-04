@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5c066abc8cf152ec4ae9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cebe4570989d7b538b06"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2167,7 +2167,7 @@ module.exports = "<div class='main-nav'>\r\n    <div class='navbar navbar-invers
 /* 29 */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  vehicle-form works!\n</p>\n";
+module.exports = "<h2>New Vehicle</h2>\n<form>\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\"></select>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"model\">Model</label>\n    <select id=\"model\" class=\"form-control\"></select>\n  </div>\n</form>";
 
 /***/ }),
 /* 30 */
