@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0771443652e2a680e86b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "201db04da1387011e0d7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -831,7 +831,7 @@ var MakeService = (function () {
         this.http = http;
     }
     MakeService.prototype.getMakes = function () {
-        return this.http.get('/api/makes')
+        return this.http.get('http://localhost:5000/api/makes')
             .map(function (res) { return res.json(); });
     };
     return MakeService;
@@ -1577,6 +1577,7 @@ exports.AppModule = AppModule;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var forms_1 = __webpack_require__(46);
 var make_service_1 = __webpack_require__(4);
 var vehicle_form_component_1 = __webpack_require__(18);
 var router_1 = __webpack_require__(48);
@@ -1596,6 +1597,7 @@ exports.sharedConfig = {
         vehicle_form_component_1.VehicleFormComponent
     ],
     imports: [
+        forms_1.FormsModule,
         router_1.RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'vehicle/new', component: vehicle_form_component_1.VehicleFormComponent },
@@ -1791,6 +1793,8 @@ var core_1 = __webpack_require__(1);
 var VehicleFormComponent = (function () {
     function VehicleFormComponent(makeService) {
         this.makeService = makeService;
+        this.vehicle = {};
+        this.models = [];
     }
     VehicleFormComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1798,6 +1802,11 @@ var VehicleFormComponent = (function () {
             _this.makes = makes;
             console.log("MAKES", _this.makes);
         });
+    };
+    VehicleFormComponent.prototype.onMakeChange = function () {
+        var _this = this;
+        var selectedMake = this.makes.find(function (m) { return m.id == _this.vehicle.make; });
+        this.models = selectedMake.models;
     };
     return VehicleFormComponent;
 }());
@@ -2215,7 +2224,7 @@ module.exports = "<div class='main-nav'>\r\n    <div class='navbar navbar-invers
 /* 30 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>New Vehicle</h2>\n<form>\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"model\">Model</label>\n    <select id=\"model\" class=\"form-control\"></select>\n  </div>\n</form>";
+module.exports = "<h2>New Vehicle</h2>\n<form>\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" (change)=\"onMakeChange()\" [(ngModel)]=\"vehicle.make\" name=\"make\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"model\">Model</label>\n    <select id=\"model\" class=\"form-control\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of models\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n</form>";
 
 /***/ }),
 /* 31 */
