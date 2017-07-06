@@ -1,3 +1,4 @@
+import { FeatureService } from './services/feature.service';
 import { FormsModule } from '@angular/forms';
 import { MakeService } from './services/make.service';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
@@ -33,6 +34,7 @@ export const sharedConfig: NgModule = {
         ])
     ],
     providers: [
-        MakeService
+        MakeService,
+        FeatureService
     ]
 };
