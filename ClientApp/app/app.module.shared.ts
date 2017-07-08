@@ -1,6 +1,5 @@
-import { FeatureService } from './services/feature.service';
+import { VehicleService } from './services/vehicle.service';
 import { FormsModule } from '@angular/forms';
-import { MakeService } from './services/make.service';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -34,7 +33,6 @@ export const sharedConfig: NgModule = {
         ])
     ],
     providers: [
-        MakeService,
-        FeatureService
+        VehicleService
     ]
 };
