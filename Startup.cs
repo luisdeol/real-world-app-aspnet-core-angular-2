@@ -34,6 +34,8 @@ namespace Vega
             services.AddAutoMapper();
 
             services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("VegaCS")));
+
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
             // Add framework services.
             services.AddMvc();
         }
