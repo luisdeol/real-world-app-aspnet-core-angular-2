@@ -1,7 +1,7 @@
 import { VehicleService } from './services/vehicle.service';
 import { FormsModule } from '@angular/forms';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastyModule } from 'ng2-toasty';
 import { AppComponent } from './components/app/app.component'
