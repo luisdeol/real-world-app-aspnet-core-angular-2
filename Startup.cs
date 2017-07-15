@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Vega.Persistence;
+using Vega.Core;
 
 namespace Vega
 {
