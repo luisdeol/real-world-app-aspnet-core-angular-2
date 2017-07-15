@@ -12,7 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class VehicleFormComponent implements OnInit {
   makes: any[];
   vehicle: any = {
-    features: []
+    features: [],
+    contact: {}
   };
   models: any = [];
   features: any = [];
