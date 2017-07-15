@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "35aad4e994e75889ee6e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9c2a267cb0ba987b7379"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -836,6 +836,10 @@ var VehicleService = (function () {
     };
     VehicleService.prototype.getFeatures = function () {
         return this.http.get('http://localhost:5000/api/features')
+            .map(function (res) { return res.json(); });
+    };
+    VehicleService.prototype.create = function (vehicle) {
+        return this.http.post('http://localhost:5000/api/vehicles', vehicle)
             .map(function (res) { return res.json(); });
     };
     return VehicleService;
@@ -1833,6 +1837,10 @@ var VehicleFormComponent = (function () {
             this.vehicle.features.splice(index, 1);
         }
     };
+    VehicleFormComponent.prototype.submit = function () {
+        this.vehicleService.create(this.vehicle)
+            .subscribe(function (x) { return console.log(x); });
+    };
     return VehicleFormComponent;
 }());
 VehicleFormComponent = __decorate([
@@ -2251,7 +2259,7 @@ module.exports = "<div class='main-nav'>\r\n    <div class='navbar navbar-invers
 /* 31 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>New Vehicle</h2>\n\n<pre>\n  {{ vehicle | json }}\n</pre>\n\n<form>\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" (change)=\"onMakeChange()\" [(ngModel)]=\"vehicle.makeId\" name=\"makeId\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"model\">Model</label>\n    <select id=\"model\" class=\"form-control\" [(ngModel)]=\"vehicle.modelId\" name=\"modelId\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of models\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <p>Is this vehicle registered?</p>\n  <label for=\"registered\" class=\"radio-inline\" >\n    <input id=\"registered\" name=\"isRegistered\" type=\"radio\" value=\"true\" [(ngModel)]=\"vehicle.isRegistered\"> Yes\n  </label>\n  <label for=\"notRegistered\" class=\"radio-inline\">\n    <input id=\"notRegistered\" name=\"isRegistered\" type=\"radio\" value=\"false\" [(ngModel)]=\"vehicle.isRegistered\"> No\n  </label>\n  <h2>Features</h2>\n  <div class=\"checkbox\" *ngFor=\"let f of features\">\n    <label for=\"feature{{ f.id }}\">\n      <input type=\"checkbox\" name=\"feature{{ f.id }}\" (change)=\"onFeatureToggle(f.id, $event)\">{{ f.name }}  \n    </label>\n  </div>\n  <h2>Contact</h2>\n  <div class=\"form-group\">\n    <label for=\"contactName\">Name</label>\n    <input id=\"contactName\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.name\" name=\"contactName\">\n  </div>\n  <div class=\"form-group\">\n    <label for=\"contactPhone\">Phone</label>\n    <input id=\"contactPhone\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.phone\" name=\"contactPhone\">\n  </div>\n  <div class=\"form-group\">\n    <label for=\"contactEmail\">E-mail</label>\n    <input id=\"contactEmail\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.email\" name=\"contactEmail\">\n  </div>\n  <button class=\"btn btn-primary\">Save</button>\n</form>";
+module.exports = "<h2>New Vehicle</h2>\n\n<pre>\n  {{ vehicle | json }}\n</pre>\n\n<form (ngSubmit)=\"submit()\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" (change)=\"onMakeChange()\" [(ngModel)]=\"vehicle.makeId\" name=\"makeId\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"model\">Model</label>\n    <select id=\"model\" class=\"form-control\" [(ngModel)]=\"vehicle.modelId\" name=\"modelId\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of models\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <p>Is this vehicle registered?</p>\n  <label for=\"registered\" class=\"radio-inline\" >\n    <input id=\"registered\" name=\"isRegistered\" type=\"radio\" value=\"true\" [(ngModel)]=\"vehicle.isRegistered\"> Yes\n  </label>\n  <label for=\"notRegistered\" class=\"radio-inline\">\n    <input id=\"notRegistered\" name=\"isRegistered\" type=\"radio\" value=\"false\" [(ngModel)]=\"vehicle.isRegistered\"> No\n  </label>\n  <h2>Features</h2>\n  <div class=\"checkbox\" *ngFor=\"let f of features\">\n    <label for=\"feature{{ f.id }}\">\n      <input type=\"checkbox\" name=\"feature{{ f.id }}\" (change)=\"onFeatureToggle(f.id, $event)\">{{ f.name }}  \n    </label>\n  </div>\n  <h2>Contact</h2>\n  <div class=\"form-group\">\n    <label for=\"contactName\">Name</label>\n    <input id=\"contactName\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.name\" name=\"contactName\">\n  </div>\n  <div class=\"form-group\">\n    <label for=\"contactPhone\">Phone</label>\n    <input id=\"contactPhone\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.phone\" name=\"contactPhone\">\n  </div>\n  <div class=\"form-group\">\n    <label for=\"contactEmail\">E-mail</label>\n    <input id=\"contactEmail\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.email\" name=\"contactEmail\">\n  </div>\n  <button class=\"btn btn-primary\">Save</button>\n</form>";
 
 /***/ }),
 /* 32 */
