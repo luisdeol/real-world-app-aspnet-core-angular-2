@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f4efc68e414fada5147e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b75cc419a4e65d19f229"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1585,7 +1585,10 @@ var AppErrorHandler = (function () {
     }
     AppErrorHandler.prototype.handleError = function (error) {
         var _this = this;
-        Raven.captureException(error.originalError || error);
+        if (!core_1.isDevMode())
+            Raven.captureException(error.originalError || error);
+        else
+            throw error;
         this.ngZone.run(function () {
             _this.toastyService.error({
                 title: 'Error',
