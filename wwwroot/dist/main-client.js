@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c39f648c479a125fcdfa"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "247bdc86fe656c0930e3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -831,7 +831,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(3);
-__webpack_require__(40);
+__webpack_require__(41);
 var VehicleService = (function () {
     function VehicleService(http) {
         this.http = http;
@@ -1061,32 +1061,38 @@ module.exports = Html5Entities;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(41);
+module.exports = (__webpack_require__(0))(0);
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(44);
+module.exports = (__webpack_require__(0))(41);
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(52);
+module.exports = (__webpack_require__(0))(44);
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = (__webpack_require__(0))(52);
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(39);
+__webpack_require__(40);
 __webpack_require__(53);
 var core_1 = __webpack_require__(1);
 var platform_browser_dynamic_1 = __webpack_require__(52);
-var app_module_client_1 = __webpack_require__(16);
+var app_module_client_1 = __webpack_require__(17);
 if (true) {
     module['hot'].accept();
     module['hot'].dispose(function () {
@@ -1106,7 +1112,7 @@ var modulePromise = platform_browser_dynamic_1.platformBrowserDynamic().bootstra
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__resourceQuery, module) {/*eslint-env browser*/
@@ -1122,7 +1128,7 @@ var options = {
   name: ''
 };
 if (true) {
-  var querystring = __webpack_require__(38);
+  var querystring = __webpack_require__(39);
   var overrides = querystring.parse(__resourceQuery.slice(1));
   if (overrides.path) options.path = overrides.path;
   if (overrides.timeout) options.timeout = overrides.timeout;
@@ -1242,11 +1248,11 @@ if (typeof window !== 'undefined') {
 }
 
 function createReporter() {
-  var strip = __webpack_require__(41);
+  var strip = __webpack_require__(42);
 
   var overlay;
   if (typeof document !== 'undefined' && options.overlay) {
-    overlay = __webpack_require__(45);
+    overlay = __webpack_require__(46);
   }
 
   var styles = {
@@ -1299,7 +1305,7 @@ function createReporter() {
   };
 }
 
-var processUpdate = __webpack_require__(46);
+var processUpdate = __webpack_require__(47);
 
 var customHandler;
 var subscribeAllHandler;
@@ -1364,16 +1370,16 @@ if (module) {
   };
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, "?path=%2F__webpack_hmr", __webpack_require__(47)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, "?path=%2F__webpack_hmr", __webpack_require__(48)(module)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(48);
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1556,7 +1562,7 @@ ansiHTML.reset()
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1567,7 +1573,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1587,7 +1593,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var ng2_toasty_1 = __webpack_require__(4);
 var core_1 = __webpack_require__(1);
-var Raven = __webpack_require__(9);
+var Raven = __webpack_require__(10);
 var AppErrorHandler = (function () {
     function AppErrorHandler(ngZone, toastyService) {
         this.ngZone = ngZone;
@@ -1620,7 +1626,7 @@ exports.AppErrorHandler = AppErrorHandler;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1632,13 +1638,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Raven = __webpack_require__(9);
-var app_error_handler_1 = __webpack_require__(15);
+var Raven = __webpack_require__(10);
+var app_error_handler_1 = __webpack_require__(16);
 var core_1 = __webpack_require__(1);
 var platform_browser_1 = __webpack_require__(54);
-var forms_1 = __webpack_require__(7);
+var forms_1 = __webpack_require__(8);
 var http_1 = __webpack_require__(3);
-var app_module_shared_1 = __webpack_require__(17);
+var app_module_shared_1 = __webpack_require__(18);
 Raven.config('https://1624b95c321e4fde9de2311a5dce2b48@sentry.io/192135').install();
 var AppModule = (function () {
     function AppModule() {
@@ -1664,22 +1670,22 @@ exports.AppModule = AppModule;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var vehicle_service_1 = __webpack_require__(5);
-var forms_1 = __webpack_require__(7);
-var vehicle_form_component_1 = __webpack_require__(23);
-var router_1 = __webpack_require__(8);
+var forms_1 = __webpack_require__(8);
+var vehicle_form_component_1 = __webpack_require__(24);
+var router_1 = __webpack_require__(9);
 var ng2_toasty_1 = __webpack_require__(4);
-var app_component_1 = __webpack_require__(18);
-var navmenu_component_1 = __webpack_require__(22);
-var home_component_1 = __webpack_require__(21);
-var fetchdata_component_1 = __webpack_require__(20);
-var counter_component_1 = __webpack_require__(19);
+var app_component_1 = __webpack_require__(19);
+var navmenu_component_1 = __webpack_require__(23);
+var home_component_1 = __webpack_require__(22);
+var fetchdata_component_1 = __webpack_require__(21);
+var counter_component_1 = __webpack_require__(20);
 exports.sharedConfig = {
     bootstrap: [app_component_1.AppComponent],
     declarations: [
@@ -1710,7 +1716,7 @@ exports.sharedConfig = {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1731,15 +1737,15 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app',
-        template: __webpack_require__(30),
-        styles: [__webpack_require__(42)]
+        template: __webpack_require__(31),
+        styles: [__webpack_require__(43)]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1764,14 +1770,14 @@ var CounterComponent = (function () {
 CounterComponent = __decorate([
     core_1.Component({
         selector: 'counter',
-        template: __webpack_require__(31)
+        template: __webpack_require__(32)
     })
 ], CounterComponent);
 exports.CounterComponent = CounterComponent;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1803,7 +1809,7 @@ var FetchDataComponent = (function () {
 FetchDataComponent = __decorate([
     core_1.Component({
         selector: 'fetchdata',
-        template: __webpack_require__(32)
+        template: __webpack_require__(33)
     }),
     __param(1, core_1.Inject('ORIGIN_URL')),
     __metadata("design:paramtypes", [http_1.Http, String])
@@ -1812,7 +1818,7 @@ exports.FetchDataComponent = FetchDataComponent;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1833,14 +1839,14 @@ var HomeComponent = (function () {
 HomeComponent = __decorate([
     core_1.Component({
         selector: 'home',
-        template: __webpack_require__(33)
+        template: __webpack_require__(34)
     })
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1861,15 +1867,15 @@ var NavMenuComponent = (function () {
 NavMenuComponent = __decorate([
     core_1.Component({
         selector: 'nav-menu',
-        template: __webpack_require__(34),
-        styles: [__webpack_require__(43)]
+        template: __webpack_require__(35),
+        styles: [__webpack_require__(44)]
     })
 ], NavMenuComponent);
 exports.NavMenuComponent = NavMenuComponent;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1887,7 +1893,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var vehicle_service_1 = __webpack_require__(5);
 var core_1 = __webpack_require__(1);
 var ng2_toasty_1 = __webpack_require__(4);
-var router_1 = __webpack_require__(8);
+var router_1 = __webpack_require__(9);
+var Observable_1 = __webpack_require__(7);
+__webpack_require__(56);
 var VehicleFormComponent = (function () {
     function VehicleFormComponent(route, router, vehicleService, toastyService) {
         var _this = this;
@@ -1907,21 +1915,36 @@ var VehicleFormComponent = (function () {
     }
     VehicleFormComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.vehicleService.getVehicle(this.vehicle.id)
-            .subscribe(function (v) {
-            _this.vehicle = v;
-        }, function (err) {
-            if (err.status == 404) {
+        var sources = [
+            this.vehicleService.getMakes(),
+            this.vehicleService.getFeatures()
+        ];
+        if (this.vehicle.id)
+            sources.push(this.vehicleService.getVehicle(this.vehicle.id));
+        Observable_1.Observable.forkJoin(sources).subscribe(function (data) {
+            _this.makes = data[0];
+            _this.features = data[1];
+            if (_this.vehicle.id)
+                _this.vehicle = data[2];
+        }, function (error) {
+            if (error.status == 404)
                 _this.router.navigate(['/home']);
-            }
-        });
-        this.vehicleService.getMakes().subscribe(function (makes) {
-            return _this.makes = makes;
-        });
-        this.vehicleService.getFeatures().subscribe(function (features) {
-            return _this.features = features;
         });
     };
+    ;
+    // this.vehicleService.getVehicle(this.vehicle.id)
+    //   .subscribe(v => {
+    //     this.vehicle = v;
+    //   }, err => {
+    //     if (err.status == 404){
+    //       this.router.navigate(['/home']);
+    //     }
+    //   });
+    //   this.vehicleService.getMakes().subscribe(makes=>
+    //   this.makes = makes);
+    //   this.vehicleService.getFeatures().subscribe(features=>
+    //   this.features = features);
+    // }
     VehicleFormComponent.prototype.onMakeChange = function () {
         var _this = this;
         var selectedMake = this.makes.find(function (m) { return m.id == _this.vehicle.makeId; });
@@ -1945,8 +1968,8 @@ var VehicleFormComponent = (function () {
 VehicleFormComponent = __decorate([
     core_1.Component({
         selector: 'app-vehicle-form',
-        template: __webpack_require__(35),
-        styles: [__webpack_require__(44)],
+        template: __webpack_require__(36),
+        styles: [__webpack_require__(45)],
         providers: [
             vehicle_service_1.VehicleService
         ]
@@ -1960,7 +1983,7 @@ exports.VehicleFormComponent = VehicleFormComponent;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);
@@ -1974,7 +1997,7 @@ exports.push([module.i, "@media (max-width: 767px) {\r\n    /* On small screens,
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);
@@ -1988,7 +2011,7 @@ exports.push([module.i, "li .glyphicon {\r\n    margin-right: 10px;\r\n}\r\n\r\n
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);
@@ -2002,19 +2025,19 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
-  XmlEntities: __webpack_require__(29),
-  Html4Entities: __webpack_require__(28),
+  XmlEntities: __webpack_require__(30),
+  Html4Entities: __webpack_require__(29),
   Html5Entities: __webpack_require__(6),
   AllHtmlEntities: __webpack_require__(6)
 };
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 var HTML_ALPHA = ['apos', 'nbsp', 'iexcl', 'cent', 'pound', 'curren', 'yen', 'brvbar', 'sect', 'uml', 'copy', 'ordf', 'laquo', 'not', 'shy', 'reg', 'macr', 'deg', 'plusmn', 'sup2', 'sup3', 'acute', 'micro', 'para', 'middot', 'cedil', 'sup1', 'ordm', 'raquo', 'frac14', 'frac12', 'frac34', 'iquest', 'Agrave', 'Aacute', 'Acirc', 'Atilde', 'Auml', 'Aring', 'Aelig', 'Ccedil', 'Egrave', 'Eacute', 'Ecirc', 'Euml', 'Igrave', 'Iacute', 'Icirc', 'Iuml', 'ETH', 'Ntilde', 'Ograve', 'Oacute', 'Ocirc', 'Otilde', 'Ouml', 'times', 'Oslash', 'Ugrave', 'Uacute', 'Ucirc', 'Uuml', 'Yacute', 'THORN', 'szlig', 'agrave', 'aacute', 'acirc', 'atilde', 'auml', 'aring', 'aelig', 'ccedil', 'egrave', 'eacute', 'ecirc', 'euml', 'igrave', 'iacute', 'icirc', 'iuml', 'eth', 'ntilde', 'ograve', 'oacute', 'ocirc', 'otilde', 'ouml', 'divide', 'oslash', 'ugrave', 'uacute', 'ucirc', 'uuml', 'yacute', 'thorn', 'yuml', 'quot', 'amp', 'lt', 'gt', 'OElig', 'oelig', 'Scaron', 'scaron', 'Yuml', 'circ', 'tilde', 'ensp', 'emsp', 'thinsp', 'zwnj', 'zwj', 'lrm', 'rlm', 'ndash', 'mdash', 'lsquo', 'rsquo', 'sbquo', 'ldquo', 'rdquo', 'bdquo', 'dagger', 'Dagger', 'permil', 'lsaquo', 'rsaquo', 'euro', 'fnof', 'Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon', 'Zeta', 'Eta', 'Theta', 'Iota', 'Kappa', 'Lambda', 'Mu', 'Nu', 'Xi', 'Omicron', 'Pi', 'Rho', 'Sigma', 'Tau', 'Upsilon', 'Phi', 'Chi', 'Psi', 'Omega', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigmaf', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega', 'thetasym', 'upsih', 'piv', 'bull', 'hellip', 'prime', 'Prime', 'oline', 'frasl', 'weierp', 'image', 'real', 'trade', 'alefsym', 'larr', 'uarr', 'rarr', 'darr', 'harr', 'crarr', 'lArr', 'uArr', 'rArr', 'dArr', 'hArr', 'forall', 'part', 'exist', 'empty', 'nabla', 'isin', 'notin', 'ni', 'prod', 'sum', 'minus', 'lowast', 'radic', 'prop', 'infin', 'ang', 'and', 'or', 'cap', 'cup', 'int', 'there4', 'sim', 'cong', 'asymp', 'ne', 'equiv', 'le', 'ge', 'sub', 'sup', 'nsub', 'sube', 'supe', 'oplus', 'otimes', 'perp', 'sdot', 'lceil', 'rceil', 'lfloor', 'rfloor', 'lang', 'rang', 'loz', 'spades', 'clubs', 'hearts', 'diams'];
@@ -2167,7 +2190,7 @@ module.exports = Html4Entities;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 var ALPHA_INDEX = {
@@ -2328,43 +2351,43 @@ module.exports = XmlEntities;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = "<ng2-toasty [position]=\"'top-right'\"></ng2-toasty>\r\n<div class='container-fluid'>\r\n    <div class='row'>\r\n        <div class='col-sm-3'>\r\n            <nav-menu></nav-menu>\r\n        </div>\r\n        <div class='col-sm-9 body-content'>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = "<h1>Counter</h1>\r\n\r\n<p>This is a simple example of an Angular component.</p>\r\n\r\n<p>Current count: <strong>{{ currentCount }}</strong></p>\r\n\r\n<button (click)=\"incrementCounter()\">Increment</button>\r\n";
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = "<h1>Weather forecast</h1>\r\n\r\n<p>This component demonstrates fetching data from the server.</p>\r\n\r\n<p *ngIf=\"!forecasts\"><em>Loading...</em></p>\r\n\r\n<table class='table' *ngIf=\"forecasts\">\r\n    <thead>\r\n        <tr>\r\n            <th>Date</th>\r\n            <th>Temp. (C)</th>\r\n            <th>Temp. (F)</th>\r\n            <th>Summary</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let forecast of forecasts\">\r\n            <td>{{ forecast.dateFormatted }}</td>\r\n            <td>{{ forecast.temperatureC }}</td>\r\n            <td>{{ forecast.temperatureF }}</td>\r\n            <td>{{ forecast.summary }}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n";
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = "<h1>Hello, world!</h1>\r\n<p>Welcome to your new single-page application, built with:</p>\r\n<ul>\r\n    <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>\r\n    <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>\r\n    <li><a href='https://webpack.github.io/'>Webpack</a> for building and bundling client-side resources</li>\r\n    <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>\r\n</ul>\r\n<p>To help you get started, we've also set up:</p>\r\n<ul>\r\n    <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>\r\n    <li><strong>Server-side prerendering</strong>. For faster initial loading and improved SEO, your Angular app is prerendered on the server. The resulting HTML is then transferred to the browser where a client-side copy of the app takes over.</li>\r\n    <li><strong>Webpack dev middleware</strong>. In development mode, there's no need to run the <code>webpack</code> build tool. Your client-side resources are dynamically built on demand. Updates are available as soon as you modify any file.</li>\r\n    <li><strong>Hot module replacement</strong>. In development mode, you don't even need to reload the page after making most changes. Within seconds of saving changes to files, your Angular app will be rebuilt and a new instance injected is into the page.</li>\r\n    <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and the <code>webpack</code> build tool produces minified static CSS and JavaScript files.</li>\r\n</ul>\r\n";
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class='main-nav'>\r\n    <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n            <a class='navbar-brand' [routerLink]=\"['/home']\">Vega</a>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/home']\">\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/vehicle/new']\">\r\n                        <span class='glyphicon glyphicon-plus'></span> New Vehicle\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/counter']\">\r\n                        <span class='glyphicon glyphicon-education'></span> Counter\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/fetch-data']\">\r\n                        <span class='glyphicon glyphicon-th-list'></span> Fetch data\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = "<h2>New Vehicle</h2>\n\n<pre>\n  {{ vehicle | json }}\n</pre>\n\n<form #f=\"ngForm\" (ngSubmit)=\"submit()\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" (change)=\"onMakeChange()\" [(ngModel)]=\"vehicle.makeId\" name=\"makeId\" required #make=\"ngModel\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n    <div class=\"alert alert-danger\" *ngIf=\"make.touched && !make.valid\">Please specify the make.</div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"model\">Model</label>\n    <select id=\"model\" class=\"form-control\" [(ngModel)]=\"vehicle.modelId\" name=\"modelId\" required #model=\"ngModel\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of models\" value=\"{{ m.id }}\">{{ m.name }}</option>\n    </select>\n    <div class=\"alert alert-danger\" *ngIf=\"model.touched && !model.valid\">Please specify the Model.</div>\n  </div>\n  <p>Is this vehicle registered?</p>\n  <label for=\"registered\" class=\"radio-inline\" >\n    <input id=\"registered\" name=\"isRegistered\" type=\"radio\" value=\"true\" [(ngModel)]=\"vehicle.isRegistered\"> Yes\n  </label>\n  <label for=\"notRegistered\" class=\"radio-inline\">\n    <input id=\"notRegistered\" name=\"isRegistered\" type=\"radio\" value=\"false\" [(ngModel)]=\"vehicle.isRegistered\"> No\n  </label>\n  <h2>Features</h2>\n  <div class=\"checkbox\" *ngFor=\"let f of features\">\n    <label for=\"feature{{ f.id }}\">\n      <input type=\"checkbox\" name=\"feature{{ f.id }}\" (change)=\"onFeatureToggle(f.id, $event)\">{{ f.name }}  \n    </label>\n  </div>\n  <h2>Contact</h2>\n  <div class=\"form-group\">\n    <label for=\"contactName\">Name</label>\n    <input id=\"contactName\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.name\" name=\"contactName\" required #contactName=\"ngModel\">\n    <div class=\"alert alert-danger\" *ngIf=\"contactName.touched && !contactName.valid\">Please specify the contact name.</div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"contactPhone\">Phone</label>\n    <input id=\"contactPhone\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.phone\" name=\"contactPhone\" required #contactPhone=\"ngModel\">\n    <div class=\"alert alert-danger\" *ngIf=\"contactPhone.touched && !contactPhone.valid\">Please specify the contact phone.</div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"contactEmail\">E-mail</label>\n    <input id=\"contactEmail\" type=\"text\" class=\"form-control\" [(ngModel)]=\"vehicle.contact.email\" name=\"contactEmail\" required #contactEmail=\"ngModel\">\n    <div class=\"alert alert-danger\" *ngIf=\"contactEmail.touched && !contactEmail.valid\">Please specify the contact e-mail.</div>\n  </div>\n  <button class=\"btn btn-primary\" [disabled]=\"!f.valid\">Save</button>\n</form>";
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2455,7 +2478,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2547,18 +2570,18 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(36);
-exports.encode = exports.stringify = __webpack_require__(37);
+exports.decode = exports.parse = __webpack_require__(37);
+exports.encode = exports.stringify = __webpack_require__(38);
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {/*! *****************************************************************************
@@ -3689,42 +3712,28 @@ var Reflect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(49), __webpack_require__(51)))
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var Observable_1 = __webpack_require__(48);
-var map_1 = __webpack_require__(50);
-Observable_1.Observable.prototype.map = map_1.map;
-//# sourceMappingURL=map.js.map
-
-/***/ }),
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ansiRegex = __webpack_require__(14)();
-
-module.exports = function (str) {
-	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
-};
-
+var Observable_1 = __webpack_require__(7);
+var map_1 = __webpack_require__(50);
+Observable_1.Observable.prototype.map = map_1.map;
+//# sourceMappingURL=map.js.map
 
 /***/ }),
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
-        var result = __webpack_require__(24);
+var ansiRegex = __webpack_require__(15)();
 
-        if (typeof result === "string") {
-            module.exports = result;
-        } else {
-            module.exports = result.toString();
-        }
-    
+module.exports = function (str) {
+	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
+};
+
 
 /***/ }),
 /* 43 */
@@ -3758,6 +3767,20 @@ module.exports = function (str) {
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+        var result = __webpack_require__(27);
+
+        if (typeof result === "string") {
+            module.exports = result;
+        } else {
+            module.exports = result.toString();
+        }
+    
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*eslint-env browser*/
 
 var clientOverlay = document.createElement('div');
@@ -3784,7 +3807,7 @@ for (var key in styles) {
   clientOverlay.style[key] = styles[key];
 }
 
-var ansiHTML = __webpack_require__(13);
+var ansiHTML = __webpack_require__(14);
 var colors = {
   reset: ['transparent', 'transparent'],
   black: '181818',
@@ -3799,7 +3822,7 @@ var colors = {
 };
 ansiHTML.setColors(colors);
 
-var Entities = __webpack_require__(27).AllHtmlEntities;
+var Entities = __webpack_require__(28).AllHtmlEntities;
 var entities = new Entities();
 
 exports.showProblems =
@@ -3840,7 +3863,7 @@ function problemType (type) {
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -3978,7 +4001,7 @@ module.exports = function(hash, moduleMap, options) {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -4004,12 +4027,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(0))(0);
 
 /***/ }),
 /* 49 */
@@ -4051,10 +4068,27 @@ module.exports = (__webpack_require__(0))(6);
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(13);
 __webpack_require__(12);
-__webpack_require__(11);
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(11);
 
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__(7);
+var forkJoin_1 = __webpack_require__(57);
+Observable_1.Observable.forkJoin = forkJoin_1.forkJoin;
+//# sourceMappingURL=forkJoin.js.map
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(0))(82);
 
 /***/ })
 /******/ ]);
