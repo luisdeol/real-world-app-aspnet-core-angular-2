@@ -26,4 +26,10 @@ export class VehicleService {
     return this.http.get('http://localhost:5000/api/vehicles/'+id)
       .map(res => res.json());
   }
+
+  update(vehicle){
+    // console.log(vehicle);
+    return this.http.put('http://localhost:5000/api/vehicles/'+vehicle.id, vehicle)
+      .map(res => res.json());
+  }
 }

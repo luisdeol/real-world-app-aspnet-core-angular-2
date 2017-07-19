@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ec652a0313d20dba3cf2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "eea17aca5fdf0c967098"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -856,6 +856,11 @@ var VehicleService = (function () {
     };
     VehicleService.prototype.getVehicle = function (id) {
         return this.http.get('http://localhost:5000/api/vehicles/' + id)
+            .map(function (res) { return res.json(); });
+    };
+    VehicleService.prototype.update = function (vehicle) {
+        // console.log(vehicle);
+        return this.http.put('http://localhost:5000/api/vehicles/' + vehicle.id, vehicle)
             .map(function (res) { return res.json(); });
     };
     return VehicleService;
@@ -1969,8 +1974,23 @@ var VehicleFormComponent = (function () {
         }
     };
     VehicleFormComponent.prototype.submit = function () {
-        this.vehicleService.create(this.vehicle)
-            .subscribe(function (x) { return console.log(x); });
+        var _this = this;
+        if (this.vehicle.id) {
+            this.vehicleService.update(this.vehicle)
+                .subscribe(function (x) {
+                _this.toastyService.success({
+                    title: 'Success',
+                    msg: 'The vehicle was successfully updated',
+                    theme: 'bootstrap',
+                    showClose: true,
+                    timeout: 5000
+                });
+            });
+        }
+        else {
+            this.vehicleService.create(this.vehicle)
+                .subscribe(function (x) { return console.log(x); });
+        }
     };
     return VehicleFormComponent;
 }());
