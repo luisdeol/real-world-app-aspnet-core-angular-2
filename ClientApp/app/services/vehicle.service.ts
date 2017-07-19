@@ -32,4 +32,8 @@ export class VehicleService {
     return this.http.put('http://localhost:5000/api/vehicles/'+vehicle.id, vehicle)
       .map(res => res.json());
   }
+
+  delete(id){
+    return this.http.delete('http://localhost:5000/api/vehicles/'+id);
+  }
 }

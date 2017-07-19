@@ -51,4 +51,5 @@
     <div class="alert alert-danger" *ngIf="contactEmail.touched && !contactEmail.valid">Please specify the contact e-mail.</div>
   </div>
   <button class="btn btn-primary" [disabled]="!f.valid">Save</button>
+  <button class="btn btn-danger" type="button" (click)="delete()" *ngIf="vehicle.id">Delete</button>
 </form>
