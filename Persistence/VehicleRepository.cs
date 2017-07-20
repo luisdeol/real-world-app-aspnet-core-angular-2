@@ -4,6 +4,7 @@ using Vega.Models;
 using Vega.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Vega.Persistence
 {
@@ -40,14 +41,19 @@ namespace Vega.Persistence
             return await context.Vehicles.FindAsync(id);
         }
 
-        public async Task<List<Vehicle>> GetVehicles()
+        public async Task<List<Vehicle>> GetVehicles(Filter filter)
         {
-            return await context.Vehicles
+            var query = context.Vehicles
                 .Include(v => v.Model)
                     .ThenInclude(m => m.Make)
                 .Include(v => v.Features)
                     .ThenInclude(vf => vf.Feature)
-            .ToListAsync();
+                .AsQueryable();
+            
+            if (filter.MakeId.HasValue)
+                query = query
+                    .Where(v => v.Model.MakeId == filter.MakeId);
+            return await query.ToListAsync();
         }
     }
 }
