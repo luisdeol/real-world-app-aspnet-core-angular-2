@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0f2a8b3491fdb2789e02"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7ca2983a7a6dc4f7a786"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2063,12 +2063,21 @@ var VehicleListComponent = (function () {
     VehicleListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.vehicleService.getVehicles()
-            .subscribe(function (vehicles) { return _this.vehicles = vehicles; });
+            .subscribe(function (vehicles) { return _this.vehicles = _this.allVehicles = vehicles; });
         this.vehicleService.getMakes()
             .subscribe(function (makes) { return _this.makes = makes; });
     };
     VehicleListComponent.prototype.onFilterChange = function () {
-        this.filter.makeId;
+        var _this = this;
+        var vehicles = this.allVehicles;
+        if (this.filter.makeid)
+            vehicles = vehicles.filter(function (v) { return v.make.id == _this.filter.makeid; });
+        this.vehicles = vehicles;
+        console.log(this.vehicles);
+    };
+    VehicleListComponent.prototype.resetFilter = function () {
+        this.filter = {};
+        this.onFilterChange();
     };
     return VehicleListComponent;
 }());
@@ -2490,7 +2499,7 @@ module.exports = "<h2>New Vehicle</h2>\n\n<pre>\n  {{ vehicle | json }}\n</pre>\
 /* 38 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"form-group well\">\n  <label for=\"make\">Make</label>\n  <select name=\"\" id=\"make\" class=\"form-control\" [{ngModel}]=\"filter.makeId\" (change)=\"onFIlterChange()\">\n    <option value=\"\"></option>\n    <option *ngFor=\"let m of makes\" value=\"{{  m.id}}\">{{ m.name }}</option>\n  </select>\n</div>\n<table class=\"table\">\n  <thead>\n    <th>Id</th>\n    <th>Make</th>\n    <th>Model</th>\n    <th>Contact Name</th>\n    <th></th>\n  </thead>\n  <tr *ngFor=\"let v of vehicles\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>";
+module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"well\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" [(ngModel)]=\"filter.makeid\" (change)=\"onFilterChange()\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{  m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <button class=\"btn btn-default\" (click)=\"resetFilter()\">Reset</button>\n</div>\n<table class=\"table\">\n  <thead>\n    <th>Id</th>\n    <th>Make</th>\n    <th>Model</th>\n    <th>Contact Name</th>\n    <th></th>\n  </thead>\n  <tr *ngFor=\"let v of vehicles\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>";
 
 /***/ }),
 /* 39 */
