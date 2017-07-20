@@ -7,6 +7,7 @@ using Vega.Controllers.Resources;
 using Vega.Models;
 using Vega.Persistence;
 using Vega.Core;
+using System.Collections.Generic;
 
 namespace Vega.Controllers
 {
@@ -89,6 +90,12 @@ namespace Vega.Controllers
 
             var vehicleResource = mapper.Map<Vehicle, VehicleResource>(vehicle);
             return Ok(vehicleResource);
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<VehicleResource>> GetVehicles(){
+            var vehicles = await repository.GetVehicles();
+            return mapper.Map<List<Vehicle>, List<VehicleResource>>(vehicles);
         }
     }
 }

@@ -36,4 +36,9 @@ export class VehicleService {
   delete(id){
     return this.http.delete('http://localhost:5000/api/vehicles/'+id);
   }
+
+  getVehicles(){
+    return this.http.get('http://localhost:5000/api/vehicles/')
+      .map(res => res.json());
+  }
 }

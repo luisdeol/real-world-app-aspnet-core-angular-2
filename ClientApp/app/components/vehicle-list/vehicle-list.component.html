@@ -1,0 +1,23 @@
+<h3>
+  Vehicles
+</h3>
+<a class="btn btn-primary" [routerLink]="['/vehicle/new']">
+  New Vehicle
+</a>
+
+<table class="table">
+  <thead>
+    <th>Id</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Contact Name</th>
+    <th></th>
+  </thead>
+  <tr *ngFor="let v of vehicles">
+    <td>{{ v.id }}</td>
+    <td>{{ v.make.name }}</td>
+    <td>{{ v.model.name }}</td>
+    <td>{{ v.contact.name }}</td>
+    <td><a class="btn btn-primary">View</a></td>
+  </tr>
+</table>
