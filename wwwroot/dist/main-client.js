@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3d252394521dfe0c4477"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ec90534c478709b4162c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -741,6 +741,7 @@ __webpack_require__(44);
 var VehicleService = (function () {
     function VehicleService(http) {
         this.http = http;
+        this.vehiclesEndpoint = 'http://localhost:5000/api/vehicles';
     }
     VehicleService.prototype.getMakes = function () {
         return this.http.get('http://localhost:5000/api/makes')
@@ -751,24 +752,34 @@ var VehicleService = (function () {
             .map(function (res) { return res.json(); });
     };
     VehicleService.prototype.create = function (vehicle) {
-        return this.http.post('http://localhost:5000/api/vehicles', vehicle)
+        return this.http.post(this.vehiclesEndpoint, vehicle)
             .map(function (res) { return res.json(); });
     };
     VehicleService.prototype.getVehicle = function (id) {
-        return this.http.get('http://localhost:5000/api/vehicles/' + id)
+        return this.http.get(this.vehiclesEndpoint + '/' + id)
             .map(function (res) { return res.json(); });
     };
     VehicleService.prototype.update = function (vehicle) {
         // console.log(vehicle);
-        return this.http.put('http://localhost:5000/api/vehicles/' + vehicle.id, vehicle)
+        return this.http.put(this.vehiclesEndpoint + '/' + vehicle.id, vehicle)
             .map(function (res) { return res.json(); });
     };
     VehicleService.prototype.delete = function (id) {
-        return this.http.delete('http://localhost:5000/api/vehicles/' + id);
+        return this.http.delete(this.vehiclesEndpoint + '/' + id);
     };
-    VehicleService.prototype.getVehicles = function () {
-        return this.http.get('http://localhost:5000/api/vehicles/')
+    VehicleService.prototype.getVehicles = function (filter) {
+        return this.http.get(this.vehiclesEndpoint + '?' + this.toQueryString(filter))
             .map(function (res) { return res.json(); });
+    };
+    VehicleService.prototype.toQueryString = function (obj) {
+        var parts = [];
+        for (var property in obj) {
+            var value = obj[property];
+            if (value != null && value != undefined) {
+                parts.push(encodeURIComponent(property) + '=' + encodeURIComponent(value));
+            }
+            return parts.join('&');
+        }
     };
     return VehicleService;
 }());
@@ -2062,18 +2073,17 @@ var VehicleListComponent = (function () {
     }
     VehicleListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.vehicleService.getVehicles()
-            .subscribe(function (vehicles) { return _this.vehicles = _this.allVehicles = vehicles; });
+        this.populateVehicles();
         this.vehicleService.getMakes()
             .subscribe(function (makes) { return _this.makes = makes; });
     };
-    VehicleListComponent.prototype.onFilterChange = function () {
+    VehicleListComponent.prototype.populateVehicles = function () {
         var _this = this;
-        var vehicles = this.allVehicles;
-        if (this.filter.makeid)
-            vehicles = vehicles.filter(function (v) { return v.make.id == _this.filter.makeid; });
-        this.vehicles = vehicles;
-        console.log(this.vehicles);
+        this.vehicleService.getVehicles(this.filter)
+            .subscribe(function (vehicles) { return _this.vehicles = vehicles; });
+    };
+    VehicleListComponent.prototype.onFilterChange = function () {
+        this.populateVehicles();
     };
     VehicleListComponent.prototype.resetFilter = function () {
         this.filter = {};
