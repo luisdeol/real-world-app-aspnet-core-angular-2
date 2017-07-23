@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d300dfeac537acf78432"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "bfd44c7002efcebee920"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -711,7 +711,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = vendor_5a845c5ee59ef91e0455;
+module.exports = vendor_aeb95e9878e892bae1a0;
 
 /***/ }),
 /* 1 */
@@ -887,7 +887,7 @@ module.exports = (__webpack_require__(0))(42);
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(51);
+module.exports = (__webpack_require__(0))(52);
 
 /***/ }),
 /* 7 */
@@ -1101,7 +1101,7 @@ module.exports = (__webpack_require__(0))(44);
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(52);
+module.exports = (__webpack_require__(0))(53);
 
 /***/ }),
 /* 11 */
@@ -2518,7 +2518,7 @@ module.exports = "<h2>New Vehicle</h2>\n\n<pre>\n  {{ vehicle | json }}\n</pre>\
 /* 38 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"well\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" [(ngModel)]=\"query.makeid\" (change)=\"onFilterChange()\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{  m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <button class=\"btn btn-default\" (click)=\"resetFilter()\">Reset</button>\n</div>\n<table class=\"table\">\n  <thead>\n    <th>Id</th>\n    <th (click)=\"sortBy('make')\">Make</th>\n    <th (click)=\"sortBy('model')\">Model</th>\n    <th (click)=\"sortBy('contactName')\">Contact Name</th>\n    <th></th>\n  </thead>\n  <tr *ngFor=\"let v of vehicles\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>";
+module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"well\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" [(ngModel)]=\"query.makeid\" (change)=\"onFilterChange()\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{  m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <button class=\"btn btn-default\" (click)=\"resetFilter()\">Reset</button>\n</div>\n<table class=\"table\">\n  <thead>\n    <th>Id</th>\n    <th (click)=\"sortBy('make')\">\n      Make\n      <i *ngIf=\"query.sortBy === 'make'\" \n        class=\"fa\"\n        [class.fa-sort-asc]=\"query.isSortAscending\"\n        [class.fa-sort-desc]=\"!query.isSortAscending\"></i></th>\n    <th (click)=\"sortBy('model')\">Model</th>\n    <th (click)=\"sortBy('contactName')\">Contact Name</th>\n    <th></th>\n  </thead>\n  <tr *ngFor=\"let v of vehicles\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>";
 
 /***/ }),
 /* 39 */
@@ -4201,13 +4201,13 @@ module.exports = (__webpack_require__(0))(43);
 /* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(53);
+module.exports = (__webpack_require__(0))(54);
 
 /***/ }),
 /* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(54);
+module.exports = (__webpack_require__(0))(55);
 
 /***/ }),
 /* 58 */
@@ -4219,7 +4219,7 @@ module.exports = (__webpack_require__(0))(6);
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(83);
+module.exports = (__webpack_require__(0))(84);
 
 /***/ }),
 /* 60 */
