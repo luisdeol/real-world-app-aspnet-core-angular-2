@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bfd44c7002efcebee920"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d5c1aad9fec99709175f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2069,6 +2069,13 @@ var VehicleListComponent = (function () {
     function VehicleListComponent(vehicleService) {
         this.vehicleService = vehicleService;
         this.query = {};
+        this.columns = [
+            { title: 'Id' },
+            { title: 'Contact Name', key: 'contactName', isSortable: true },
+            { title: 'Make', key: 'make', isSortable: true },
+            { title: 'Model', key: 'model', isSortable: true },
+            {}
+        ];
     }
     VehicleListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2518,7 +2525,7 @@ module.exports = "<h2>New Vehicle</h2>\n\n<pre>\n  {{ vehicle | json }}\n</pre>\
 /* 38 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"well\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" [(ngModel)]=\"query.makeid\" (change)=\"onFilterChange()\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{  m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <button class=\"btn btn-default\" (click)=\"resetFilter()\">Reset</button>\n</div>\n<table class=\"table\">\n  <thead>\n    <th>Id</th>\n    <th (click)=\"sortBy('make')\">\n      Make\n      <i *ngIf=\"query.sortBy === 'make'\" \n        class=\"fa\"\n        [class.fa-sort-asc]=\"query.isSortAscending\"\n        [class.fa-sort-desc]=\"!query.isSortAscending\"></i></th>\n    <th (click)=\"sortBy('model')\">Model</th>\n    <th (click)=\"sortBy('contactName')\">Contact Name</th>\n    <th></th>\n  </thead>\n  <tr *ngFor=\"let v of vehicles\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>";
+module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"well\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" [(ngModel)]=\"query.makeid\" (change)=\"onFilterChange()\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{  m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <button class=\"btn btn-default\" (click)=\"resetFilter()\">Reset</button>\n</div>\n<table class=\"table\">\n  <thead>\n    <th *ngFor=\"let c of columns\" >\n      <div *ngIf=\"c.isSortable\" (click)=\"sortBy(c.key)\">\n      {{ c.title }}\n      <i *ngIf=\"query.sortBy === c.key\" \n        class=\"fa\"\n        [class.fa-sort-asc]=\"query.isSortAscending\"\n        [class.fa-sort-desc]=\"!query.isSortAscending\"></i>\n      </div>\n      <div *ngIf=\"!c.isSortable\">\n        {{ c.title }}\n      </div>\n    </th>\n  </thead>\n  <tr *ngFor=\"let v of vehicles\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>";
 
 /***/ }),
 /* 39 */
