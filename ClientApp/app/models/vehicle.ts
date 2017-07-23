@@ -29,3 +29,8 @@ export interface SaveVehicle {
     features: number[];
     contact: Contact;
 }
+
+export interface Filter {
+    isSortAscending: boolean,
+    sortBy: string
+}
