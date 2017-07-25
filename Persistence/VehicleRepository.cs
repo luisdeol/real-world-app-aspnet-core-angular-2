@@ -66,8 +66,9 @@ namespace Vega.Persistence
                 ["contactName"] = v => v.ContactName,  
                 ["id"] = v => v.Id,  
             };
-            
+
             query = query.ApplyOrdering(queryObj, columnsMap);
+            query = query.ApplyPaging(queryObj);
             return await query.ToListAsync();
         }
     }

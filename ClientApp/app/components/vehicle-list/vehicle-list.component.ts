@@ -26,11 +26,12 @@ export class VehicleListComponent implements OnInit {
     this.vehicleService.getMakes()
       .subscribe(makes => this.makes = makes);
   }
+  
   private populateVehicles(){
       this.vehicleService.getVehicles(this.query)
-      .subscribe(vehicles => this.vehicles = vehicles);
-    
+      .subscribe(vehicles => this.vehicles = vehicles);   
   }
+
   onFilterChange(){
     this.populateVehicles();
   }
