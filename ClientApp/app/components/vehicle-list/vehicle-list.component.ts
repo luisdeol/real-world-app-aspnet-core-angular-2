@@ -9,11 +9,12 @@ import { Vehicle } from "../../models/vehicle";
 })
 export class VehicleListComponent implements OnInit {
   private readonly PAGE_SIZE = 3; 
-  vehicles: Vehicle[];
   makes: KeyValuePair[];
   query: any = {
     pageSize: this.PAGE_SIZE
   };  
+  queryResult: any = {
+  };
   columns = [
     { title: 'Id' },
     { title: 'Contact Name', key: 'contactName', isSortable: true },
@@ -32,7 +33,7 @@ export class VehicleListComponent implements OnInit {
   
   private populateVehicles(){
       this.vehicleService.getVehicles(this.query)
-      .subscribe(vehicles => this.vehicles = vehicles);   
+      .subscribe(result => this.queryResult = result);   
   }
 
   onFilterChange(){

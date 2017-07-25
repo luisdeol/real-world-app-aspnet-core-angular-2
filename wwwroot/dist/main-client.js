@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2f926084671710bce3cc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "edcc22f1767ef7ad0332"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2145,6 +2145,7 @@ var VehicleListComponent = (function () {
         this.query = {
             pageSize: this.PAGE_SIZE
         };
+        this.queryResult = {};
         this.columns = [
             { title: 'Id' },
             { title: 'Contact Name', key: 'contactName', isSortable: true },
@@ -2162,7 +2163,7 @@ var VehicleListComponent = (function () {
     VehicleListComponent.prototype.populateVehicles = function () {
         var _this = this;
         this.vehicleService.getVehicles(this.query)
-            .subscribe(function (vehicles) { return _this.vehicles = vehicles; });
+            .subscribe(function (result) { return _this.queryResult = result; });
     };
     VehicleListComponent.prototype.onFilterChange = function () {
         this.populateVehicles();
@@ -2605,7 +2606,7 @@ module.exports = "<h2>New Vehicle</h2>\n\n<pre>\n  {{ vehicle | json }}\n</pre>\
 /* 39 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"well\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" [(ngModel)]=\"query.makeid\" (change)=\"onFilterChange()\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{  m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <button class=\"btn btn-default\" (click)=\"resetFilter()\">Reset</button>\n</div>\n<table class=\"table\">\n  <thead>\n    <th *ngFor=\"let c of columns\" >\n      <div *ngIf=\"c.isSortable\" (click)=\"sortBy(c.key)\">\n      {{ c.title }}\n      <i *ngIf=\"query.sortBy === c.key\" \n        class=\"fa\"\n        [class.fa-sort-asc]=\"query.isSortAscending\"\n        [class.fa-sort-desc]=\"!query.isSortAscending\"></i>\n      </div>\n      <div *ngIf=\"!c.isSortable\">\n        {{ c.title }}\n      </div>\n    </th>\n  </thead>\n  <tr *ngFor=\"let v of vehicles\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>\n<pagination [total-items]=\"10\" [page-size]=\"query.pageSize\" (page-changed)=\"onPageChange($event)\"></pagination>";
+module.exports = "<h3>\n  Vehicles\n</h3>\n<a class=\"btn btn-primary\" [routerLink]=\"['/vehicle/new']\">\n  New Vehicle\n</a>\n<div class=\"well\">\n  <div class=\"form-group\">\n    <label for=\"make\">Make</label>\n    <select name=\"\" id=\"make\" class=\"form-control\" [(ngModel)]=\"query.makeid\" (change)=\"onFilterChange()\">\n      <option value=\"\"></option>\n      <option *ngFor=\"let m of makes\" value=\"{{  m.id }}\">{{ m.name }}</option>\n    </select>\n  </div>\n  <button class=\"btn btn-default\" (click)=\"resetFilter()\">Reset</button>\n</div>\n<table class=\"table\">\n  <thead>\n    <th *ngFor=\"let c of columns\" >\n      <div *ngIf=\"c.isSortable\" (click)=\"sortBy(c.key)\">\n      {{ c.title }}\n      <i *ngIf=\"query.sortBy === c.key\" \n        class=\"fa\"\n        [class.fa-sort-asc]=\"query.isSortAscending\"\n        [class.fa-sort-desc]=\"!query.isSortAscending\"></i>\n      </div>\n      <div *ngIf=\"!c.isSortable\">\n        {{ c.title }}\n      </div>\n    </th>\n  </thead>\n  <tr *ngFor=\"let v of queryResult.items\">\n    <td>{{ v.id }}</td>\n    <td>{{ v.make.name }}</td>\n    <td>{{ v.model.name }}</td>\n    <td>{{ v.contact.name }}</td>\n    <td><a class=\"btn btn-primary\">View</a></td>\n  </tr>\n</table>\n<pagination [total-items]=\"queryResult.totalItems\" [page-size]=\"query.pageSize\" (page-changed)=\"onPageChange($event)\"></pagination>";
 
 /***/ }),
 /* 40 */
