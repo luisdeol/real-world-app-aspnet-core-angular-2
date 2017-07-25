@@ -8,9 +8,12 @@ import { Vehicle } from "../../models/vehicle";
   providers: [ VehicleService ]
 })
 export class VehicleListComponent implements OnInit {
+  private readonly PAGE_SIZE = 3; 
   vehicles: Vehicle[];
   makes: KeyValuePair[];
-  query: any = {};  
+  query: any = {
+    pageSize: this.PAGE_SIZE
+  };  
   columns = [
     { title: 'Id' },
     { title: 'Contact Name', key: 'contactName', isSortable: true },
@@ -48,6 +51,11 @@ export class VehicleListComponent implements OnInit {
       this.query.sortBy = columnName;
       this.query.isSortAscending = true;
     }
+    this.populateVehicles();
+  }
+
+  onPageChange(page) {
+    this.query.page = page; 
     this.populateVehicles();
   }
 }

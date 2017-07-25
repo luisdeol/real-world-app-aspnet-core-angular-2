@@ -1,3 +1,4 @@
+import { PaginationComponent } from './components/shared/pagination.component';
 import { VehicleService } from './services/vehicle.service';
 import { FormsModule } from '@angular/forms';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
@@ -21,7 +22,8 @@ export const sharedConfig: NgModule = {
         FetchDataComponent,
         HomeComponent,
         VehicleFormComponent,
-        VehicleListComponent
+        VehicleListComponent,
+        PaginationComponent
     ],
     imports: [
         FormsModule,
