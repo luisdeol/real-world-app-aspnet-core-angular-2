@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "edcc22f1767ef7ad0332"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "93eed17b6329f1db8939"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2166,11 +2166,15 @@ var VehicleListComponent = (function () {
             .subscribe(function (result) { return _this.queryResult = result; });
     };
     VehicleListComponent.prototype.onFilterChange = function () {
+        this.query.page = 1;
         this.populateVehicles();
     };
     VehicleListComponent.prototype.resetFilter = function () {
-        this.query = {};
-        this.onFilterChange();
+        this.query = {
+            page: 1,
+            pageSize: this.PAGE_SIZE
+        };
+        this.populateVehicles();
     };
     VehicleListComponent.prototype.sortBy = function (columnName) {
         if (this.query.sortBy === columnName) {
