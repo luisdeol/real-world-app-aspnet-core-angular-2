@@ -1,3 +1,4 @@
+import { ViewVehicleComponent } from './components/view-vehicle/view-vehicle';
 import { PaginationComponent } from './components/shared/pagination.component';
 import { VehicleService } from './services/vehicle.service';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +24,7 @@ export const sharedConfig: NgModule = {
         HomeComponent,
         VehicleFormComponent,
         VehicleListComponent,
+        ViewVehicleComponent,
         PaginationComponent
     ],
     imports: [
@@ -30,8 +32,9 @@ export const sharedConfig: NgModule = {
         ToastyModule.forRoot(),
         RouterModule.forRoot([
             { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
-            { path: 'vehicle/new', component: VehicleFormComponent} ,
-            { path: 'vehicle/:id', component: VehicleFormComponent} ,
+            { path: 'vehicles/new', component: VehicleFormComponent },
+            { path: 'vehicles/edit/:id', component: VehicleFormComponent },
+            { path: 'vehicles/:id', component: ViewVehicleComponent },
             { path: 'vehicles', component: VehicleListComponent} ,
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
