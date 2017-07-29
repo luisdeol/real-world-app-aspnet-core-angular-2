@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "025df7c9393a59fed685"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "298274a9098cefd261ce"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2020,7 +2020,7 @@ var VehicleFormComponent = (function () {
         this.models = [];
         this.features = [];
         route.params.subscribe(function (p) {
-            _this.vehicle.id = +p['id'];
+            _this.vehicle.id = +p['id'] || 0;
         });
     }
     VehicleFormComponent.prototype.ngOnInit = function () {
@@ -2071,22 +2071,17 @@ var VehicleFormComponent = (function () {
     };
     VehicleFormComponent.prototype.submit = function () {
         var _this = this;
-        if (this.vehicle.id) {
-            this.vehicleService.update(this.vehicle)
-                .subscribe(function (x) {
-                _this.toastyService.success({
-                    title: 'Success',
-                    msg: 'The vehicle was successfully updated',
-                    theme: 'bootstrap',
-                    showClose: true,
-                    timeout: 5000
-                });
+        var result$ = (this.vehicle.id) ? this.vehicleService.update(this.vehicle) : this.vehicleService.create(this.vehicle);
+        result$.subscribe(function (vehicle) {
+            _this.toastyService.success({
+                title: 'Success',
+                msg: 'Data was sucessfully saved.',
+                theme: 'bootstrap',
+                showClose: true,
+                timeout: 5000
             });
-        }
-        else {
-            this.vehicleService.create(this.vehicle)
-                .subscribe(function (x) { return console.log(x); });
-        }
+            _this.router.navigate(['/vehicles/', vehicle.id]);
+        });
     };
     VehicleFormComponent.prototype.delete = function () {
         var _this = this;
